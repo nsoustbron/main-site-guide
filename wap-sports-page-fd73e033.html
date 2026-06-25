@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 赛事信息与体育游戏导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f8f6f0;
+      color: #2d2a24;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .hero {
+      margin-bottom: 2.8rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #3d352c;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #d9cdb6;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #5e5548;
+      max-width: 640px;
+      margin: 1.2rem auto 0;
+    }
+    .intro-block {
+      background: #ffffffec;
+      padding: 2rem 1.8rem;
+      border-radius: 28px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+      margin-bottom: 2.5rem;
+    }
+    .intro-block p {
+      margin-bottom: 1.2rem;
+    }
+    .intro-block p:last-child {
+      margin-bottom: 0;
+    }
+    .highlight-sentence {
+      background: #ede7db;
+      padding: 1.2rem 1.8rem;
+      border-left: 6px solid #b6a48a;
+      border-radius: 14px 20px 20px 14px;
+      font-size: 1.05rem;
+      color: #3b342c;
+      margin: 1.8rem 0;
+    }
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      margin: 2.2rem 0;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      flex: 1 1 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      border: 1px solid #e7dfd2;
+      transition: transform 0.1s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      margin-bottom: 0.8rem;
+      color: #4f4539;
+      border-left: 4px solid #b6a48a;
+      padding-left: 0.7rem;
+    }
+    .card p {
+      font-size: 0.98rem;
+      color: #4f473d;
+    }
+    .audience-section {
+      background: #fffcf7;
+      padding: 1.8rem 2rem;
+      border-radius: 28px;
+      margin-bottom: 2.5rem;
+    }
+    .audience-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3d352c;
+      margin-bottom: 1rem;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+    .tag-list li {
+      background: #e3dcd0;
+      padding: 0.4rem 1.1rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      color: #3a3229;
+    }
+    .faq-mini {
+      background: #ffffffec;
+      border-radius: 28px;
+      padding: 1.8rem 1.8rem 1.5rem;
+      margin: 2.2rem 0 2.8rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #3f372e;
+      padding: 0.4rem 0;
+    }
+    .faq-mini details p {
+      padding: 0.6rem 0.8rem 0.2rem 1rem;
+      color: #4d463b;
+    }
+    .footer-note {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #70665a;
+      border-top: 1px solid #dad2c3;
+      padding-top: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .footer-note a {
+      color: #4d3f30;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b6a48a;
+      font-weight: 500;
+    }
+    .footer-note a:hover {
+      color: #7a6852;
+    }
+    .inline-link {
+      color: #4d3f30;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b6a48a;
+      font-weight: 500;
+    }
+    .inline-link:hover {
+      color: #7a6852;
+    }
+    @media (max-width: 520px) {
+      body {
+        padding: 1.4rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        flex-direction: column;
+      }
+      .intro-block, .audience-section, .faq-mini {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>爱游戏</h1>
+    <p>快速识别赛事信息、体育游戏与实用导航 —— 一个面向轻度运动爱好者的信息聚合站。</p>
+  </div>
+
+  <div class="intro-block">
+    <p>打开网站之前，很多人想知道：这里到底能做什么？它不是一个竞技平台，也不是复杂的数据库，而是一个帮你更快找到体育类游戏、赛事动态以及相关小工具的页面。所有内容围绕「实用」与「轻量」展开，没有冗余的排行榜或强制注册流程。</p>
+    <p>如果你曾花时间在多个页面之间跳转，只为了确认一场比赛的时间或某个体育游戏的玩法，那么 <a href="https://wap-sports-igame.com" class="inline-link">爱游戏</a> 或许可以节省你几步操作。页面布局直观，信息卡片直接展示核心用途，无需反复点击就能了解大概。</p>
+  </div>
+
+  <div class="highlight-sentence">
+    🏀 把筛选和浏览合到一起：不必在菜单里层层寻找，常用模块在首页就能看到。
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>⚽ 赛事日程速览</h3>
+      <p>以简洁的时间线列出近期体育赛事，一眼分辨日期、对阵与阶段，省去跨平台查询的麻烦。</p>
+    </div>
+    <div class="card">
+      <h3>🎮 体育游戏索引</h3>
+      <p>收录多款体育类游戏简介与风格标签，从模拟经营到动作竞技，帮助玩家快速找到感兴趣的类型。</p>
+    </div>
+    <div class="card">
+      <h3>📌 常用链接集成</h3>
+      <p>将赛事直播、游戏社区、规则百科等资源整理在一起，点击即可跳转，减少收藏夹负担。</p>
+    </div>
+  </div>
+
+  <div class="audience-section">
+    <h2>适合哪些人？</h2>
+    <p>不论你是偶尔关注球赛的旁观者，还是想找一款新体育游戏放松的玩家，这里的内容门槛都比较低。没有专业术语堆砌，也不要求你注册或登录。所有信息都摆在明处，看一眼就能判断是否对自己有用。</p>
+    <ul class="tag-list">
+      <li>⚡ 偶尔看比赛但记不住时间的人</li>
+      <li>🎯 想快速了解体育游戏类型的玩家</li>
+      <li>📖 需要一站式赛事资讯入口的普通用户</li>
+      <li>🧩 对体育文化感兴趣但不想深度钻研的人</li>
+    </ul>
+  </div>
+
+  <div class="faq-mini">
+    <h2 style="font-weight:500; color:#3d352c; margin-bottom:0.8rem;">你可能想问</h2>
+    <details>
+      <summary>需要注册或下载吗？</summary>
+      <p>完全不需要。所有内容都在浏览器中直接查看，没有强制注册或下载环节。页面上的链接均指向公开信息。</p>
+    </details>
+    <details>
+      <summary>信息更新频率如何？</summary>
+      <p>赛事日程和游戏索引会跟随主流体育赛季与游戏发布节奏进行常规更新，保持基本时效性，但并非实时滚动。</p>
+    </details>
+    <details>
+      <summary>网站有移动版吗？</summary>
+      <p>当前页面已适配移动设备，在手机和电脑上都能正常阅读。你可以随时添加到主屏幕作为快速入口。</p>
+    </details>
+  </div>
+
+  <div class="footer-note">
+    <p>如果你对体育或体育类游戏有基本好奇，不妨从 <a href="https://wap-sports-igame.com">爱游戏</a> 开始，随手翻翻，也许会发现一个感兴趣的内容。</p>
+    <p style="margin-top:0.8rem; font-size:0.85rem; color:#8f8273;">—— 一份平实的体育信息卡片集 · 无广告弹窗 · 无诱导分享</p>
+  </div>
+
+</body>
+</html>
