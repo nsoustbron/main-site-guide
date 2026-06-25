@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于爱游戏 · 站点介绍与说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f5d6c3 60%, #ecc0a8 100%);
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+        }
+        .card {
+            max-width: 860px;
+            width: 100%;
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            padding: 3.2rem 2.8rem;
+            box-shadow: 0 30px 45px -18px rgba(110, 60, 30, 0.28),
+                        0 6px 12px -6px rgba(0,0,0,0.08);
+            transition: box-shadow 0.25s;
+        }
+        .card:hover {
+            box-shadow: 0 36px 52px -20px rgba(100, 50, 20, 0.32);
+        }
+        .hero-line {
+            font-size: 1.9rem;
+            font-weight: 450;
+            letter-spacing: 0.02em;
+            color: #4f2e1b;
+            margin-bottom: 1.5rem;
+            border-left: 6px solid #c2845b;
+            padding-left: 1.3rem;
+            line-height: 1.3;
+        }
+        .hero-line small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 350;
+            color: #7f5c3f;
+            margin-top: 0.4rem;
+        }
+        .intro-text {
+            color: #3d2a1b;
+            font-size: 1.06rem;
+            margin: 1.4rem 0 1.8rem 0;
+        }
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.6rem 2.2rem;
+            margin: 2.4rem 0 2.2rem 0;
+        }
+        .feature-item {
+            flex: 1 1 180px;
+            min-width: 160px;
+            background: #fdf6f0;
+            padding: 1.2rem 1.2rem 1rem 1.2rem;
+            border-radius: 32px 16px 32px 16px;
+            box-shadow: inset 0 1px 3px #ffeee4, 0 6px 10px -8px #ac7f62;
+            transition: transform 0.2s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #7a4c2f;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+        .feature-item p {
+            font-size: 0.96rem;
+            color: #4d3524;
+        }
+        .mention-block {
+            background: #f8ede3;
+            border-radius: 40px 12px 40px 12px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 1.8rem 0;
+            font-size: 1.03rem;
+            color: #2e1e12;
+            border: 1px solid #dcbba6;
+        }
+        .mention-block a {
+            color: #965f3b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dbb094;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .mention-block a:hover {
+            border-bottom-color: #7a4629;
+            color: #5f331c;
+        }
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 2rem;
+            margin: 2.2rem 0 0.8rem 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid #ebd7c9;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 550;
+            color: #4a2c19;
+            font-size: 0.98rem;
+            margin-bottom: 0.25rem;
+        }
+        .faq-item span {
+            font-size: 0.92rem;
+            color: #5c3d2a;
+        }
+        .closing {
+            margin-top: 2.5rem;
+            padding-top: 1.4rem;
+            border-top: 2px dashed #dbb89f;
+            font-size: 1rem;
+            color: #4a3222;
+            text-align: right;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+        @media (max-width: 620px) {
+            body { padding: 1.2rem; }
+            .card { padding: 2rem 1.5rem; border-radius: 32px; }
+            .hero-line { font-size: 1.5rem; padding-left: 0.9rem; }
+            .feature-grid { gap: 1rem; }
+            .feature-item { min-width: 130px; flex: 1 1 130px; }
+            .faq-summary { grid-template-columns: 1fr; }
+            .mention-block { padding: 1.2rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero-line">
+            关于「爱游戏」
+            <small>一份从站点本身出发的叙述与说明</small>
+        </div>
+
+        <div class="intro-text">
+            <p>很久以前，线上游戏资源站点总带着一层迷雾：它从哪来？信息可靠吗？界面是否经过用心维护？ 后来我们遇到了 <a href="https://wap-sport-igame.com" style="color:#8f5a37; font-weight:500; text-decoration:none; border-bottom:2px solid #dbb094;">爱游戏</a>——一个以体育游戏和休闲内容为主的移动端页面。它没有多余的弹窗，没有过度包装的入口，反而像一本被反复翻阅过的实用手册。几年下来，站点始终保持着简洁的版式与稳定的更新节奏，这一点在同类网站中并不多见。</p>
+            <p>下面整理了几个让人印象深刻的特征，也是很多人反复回来寻找的原因。</p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3>⚡ 轻量整洁</h3>
+                <p>页面结构清晰，没有层层嵌套的导航迷宫。打开即用，适合快速浏览与查找。</p>
+            </div>
+            <div class="feature-item">
+                <h3>📁 分类直观</h3>
+                <p>体育项目、热门赛事、模拟休闲……每个板块都按照实际使用逻辑排列，减少寻找成本。</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔄 持续维护</h3>
+                <p>过去几个季度内容保持更新，链接有效率高，这一点在许多小型站点中尤为难得。</p>
+            </div>
+            <div class="feature-item">
+                <h3>📱 移动优先</h3>
+                <p>专为手机屏幕优化，按钮与卡片大小适中，横竖屏切换都不影响阅读体验。</p>
+            </div>
+        </div>
+
+        <div class="mention-block">
+            <p>🏟️ 如果你正在寻找一个不花哨、不绕弯的体育游戏信息聚合地，不妨直接看看 <a href="https://wap-sport-igame.com">爱游戏</a>。它既不是那种铺满广告的流量页面，也不是一个废弃的存档站——它更像一个被认真对待的小型资料室，安静地提供着它所能提供的浏览价值。</p>
+        </div>
+
+        <div class="faq-summary">
+            <div class="faq-item">
+                <strong>📌 爱游戏主要提供什么？</strong>
+                <span>以手机端为主的体育类游戏介绍、玩法说明、相关资讯与链接索引。</span>
+            </div>
+            <div class="faq-item">
+                <strong>🔍 信息准确度如何？</strong>
+                <span>内容大多基于公开资料与站点编辑整理，相对可靠，无夸大标题或虚假描述。</span>
+            </div>
+            <div class="faq-item">
+                <strong>🕒 更新频率稳定吗？</strong>
+                <span>近几个月观察下来，每月都有内容补充或链接修正，并非长期休眠站点。</span>
+            </div>
+            <div class="faq-item">
+                <strong>🧭 适合哪些人？</strong>
+                <span>偏好轻量化浏览、不想被复杂社区功能打扰、只想快速获取游戏信息的玩家。</span>
+            </div>
+        </div>
+
+        <div class="closing">
+            —— 整理于日常浏览之余 · 一份安静的推荐
+        </div>
+    </div>
+</body>
+</html>
