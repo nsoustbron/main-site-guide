@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 日常查询与知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fcedd5 0%, #f9d9b8 60%, #f0c9a4 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 1280px;
+            width: 100%;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #3f2c1c;
+            background: rgba(255, 245, 235, 0.5);
+            display: inline-block;
+            padding: 0.2rem 2rem;
+            border-radius: 999px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 12px rgba(180, 100, 40, 0.08);
+        }
+
+        .hero p {
+            margin-top: 0.75rem;
+            font-size: 1.1rem;
+            color: #5e4230;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            background: rgba(255, 245, 235, 0.3);
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            backdrop-filter: blur(1px);
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 12px 28px rgba(140, 80, 30, 0.10);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 235, 220, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 36px rgba(140, 80, 30, 0.15);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4d3220;
+            border-left: 5px solid #d9915a;
+            padding-left: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #5f3d28;
+            margin: 1rem 0 0.4rem;
+        }
+
+        .card ul, .card p {
+            font-size: 0.96rem;
+            line-height: 1.65;
+            color: #2e1f15;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            padding-left: 1.3rem;
+            list-style: none;
+        }
+
+        .card ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .card ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #c4814b;
+            font-weight: bold;
+        }
+
+        .inline-link {
+            color: #b06934;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+            padding-bottom: 1px;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #b06934;
+            color: #7f4d26;
+        }
+
+        .faq-block {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(140, 80, 30, 0.06);
+            border: 1px solid rgba(255, 235, 220, 0.2);
+        }
+
+        .faq-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4d3220;
+            border-left: 5px solid #d9915a;
+            padding-left: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #3f281a;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            color: #3b2a1c;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .info-strip {
+            background: white;
+            border-radius: 28px;
+            padding: 1.3rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.8rem 1.5rem;
+            box-shadow: 0 6px 16px rgba(140, 80, 30, 0.06);
+            border: 1px solid rgba(255, 235, 220, 0.2);
+            font-size: 0.95rem;
+            color: #3b2a1c;
+        }
+
+        .info-strip a {
+            color: #b06934;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .info-strip a:hover {
+            border-bottom-color: #b06934;
+        }
+
+        .info-strip .label {
+            font-weight: 600;
+            color: #4d3220;
+            margin-right: 0.2rem;
+        }
+
+        .pill-btn {
+            display: inline-block;
+            background: #ebd1ba;
+            color: #3f281a;
+            font-weight: 500;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.01em;
+            transition: background 0.2s, color 0.2s;
+            border: 1px solid rgba(180, 120, 60, 0.15);
+        }
+
+        .pill-btn:hover {
+            background: #dbb599;
+            color: #1f130c;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #593f2b;
+            opacity: 0.8;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 750px) {
+            .hero h1 { font-size: 2.2rem; }
+            .grid-2col { grid-template-columns: 1fr; gap: 1.5rem; }
+            .faq-block, .info-strip { padding: 1.5rem; }
+            .info-strip { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.8rem; }
+            .hero h1 { font-size: 1.8rem; padding: 0.1rem 1.2rem; }
+            .card { padding: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <div class="hero">
+        <h1>📖 爱游戏·查询库</h1>
+        <p>日常对照 · 延伸阅读 · 知识检索</p>
+    </div>
+
+    <!-- 双栏卡片区域：目录感 + 说明区 -->
+    <div class="grid-2col">
+        <!-- 左侧：说明 + 场景对照 -->
+        <div class="card">
+            <h2>📋 实用说明</h2>
+            <p>平台整合游戏资讯、版本对照、活动摘要与基础攻略索引。以下为常用标签与查询方向：</p>
+            <ul>
+                <li><strong>版本日志</strong> – 最近三次更新内容摘要、修复列表</li>
+                <li><strong>术语对照</strong> – 活动简称、道具缩写、状态效果速查</li>
+                <li><strong>周期日程</strong> – 每日/每周重置节点、限时开放表</li>
+                <li><strong>数值参考</strong> – 角色/武器基础参数、成长曲线</li>
+            </ul>
+            <p style="margin-top: 0.8rem;">更多对照表与查询入口可经由 <a href="https://wap-portal-igame.com" class="inline-link">爱游戏</a> 首页导航进一步检索。</p>
+        </div>
+
+        <!-- 右侧：特点 + 提示区 -->
+        <div class="card">
+            <h2>🔍 特点与提示</h2>
+            <h3>▸ 轻量查询结构</h3>
+            <p>分类卡片按「活动」「角色」「系统」排布，每个条目附带短说明，减少跳转次数。</p>
+            <h3>▸ 版本对照功能</h3>
+            <p>支持同屏对比不同时期的技能描述、数值调整，适合回溯改动细节。</p>
+            <h3>▸ 延伸阅读锚点</h3>
+            <p>每个词条后关联 1–2 篇相关解读或数据帖，方便连续查阅。提示：部分内容需保持页面横向滚动。</p>
+            <div style="margin-top: 1rem; text-align: right;">
+                <span class="pill-btn">📎 快速对照表</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 + 相关信息区 (合并为一块卡片式区块) -->
+    <div class="faq-block">
+        <h2>❓ 常见查询 & 相关信息</h2>
+        <div class="faq-item">
+            <strong>Q：如何确认某个活动目前是否处于开放期？</strong>
+            <p>首页「周期日程」卡片会以彩色标签标注「进行中」「即将开放」「已结束」。若无明确标注，可查看活动对应版块下的倒计时条。时效信息每 30 分钟更新一次。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：技能数值中「基础倍率」与「额外加成」如何区分？</strong>
+            <p>在角色详情页的数值对照表中，基础倍率以白色字显示，额外加成（来自天赋/装备）以淡橙色显示。两者相加为实际生效倍率。建议在 <a href="https://wap-portal-igame.com" class="inline-link">爱游戏</a> 的「数值参考」模块中筛选具体版本进行对比。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：是否有离线可用的查询方式？</strong>
+            <p>当前版本未提供离线包。但常用术语对照和日程表可通过浏览器打印为 PDF 存档。提示：打印前请展开所有折叠条目。</p>
+        </div>
+        <div style="margin-top: 1rem; background: #f9ede3; border-radius: 40px; padding: 0.6rem 1.2rem; font-size: 0.9rem; color: #3b2a1c;">
+            📌 延伸阅读：活动剧情年表 · 角色引用索引 · 系统更新公告汇总
+        </div>
+    </div>
+
+    <!-- 底部信息条：额外提示 + 链接嵌入 -->
+    <div class="info-strip">
+        <span><span class="label">📂 内容源：</span>游戏内公告 · 版本说明书 · 社区整理</span>
+        <span><span class="label">🔄 更新：</span>每周一、四同步</span>
+        <span>🔗 主站：<a href="https://wap-portal-igame.com">爱游戏</a> · 建议使用宽屏浏览</span>
+    </div>
+
+    <div class="footer-note">
+        本页为知识库入口页，信息仅供查询参考，请以实际游戏内版本为准。
+    </div>
+
+</div>
+</body>
+</html>
