@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常查阅 · 爱游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e1e;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2.4rem 1.8rem 5rem;
+        }
+
+        /* ---- 开场 ---- */
+        .opening {
+            margin-bottom: 3.8rem;
+            padding-top: 2.2rem;
+            border-top: 2px solid #e6e4e1;
+        }
+
+        .opening .short-line {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #6b6b6b;
+            font-weight: 400;
+            margin-bottom: 0.6rem;
+        }
+
+        .opening h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: #161616;
+            margin-bottom: 0.9rem;
+        }
+
+        .opening .subhead {
+            font-size: 1rem;
+            color: #5a5a5a;
+            max-width: 30em;
+            background: #f2f0ee;
+            padding: 0.5rem 1rem;
+            border-radius: 28px;
+            display: inline-block;
+        }
+
+        /* ---- 承接段落 ---- */
+        .intro-block {
+            margin-bottom: 3.4rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-block a {
+            color: #1b3b4f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #bbb7b0;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .intro-block a:hover {
+            text-decoration-color: #1b3b4f;
+        }
+
+        /* ---- 特点列表 ---- */
+        .feature-section {
+            margin: 3.6rem 0;
+        }
+
+        .feature-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.6rem;
+            color: #1f1f1f;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-list li {
+            background: #ffffff;
+            padding: 1.2rem 1.5rem;
+            border-radius: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #efedea;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-list li:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .feature-list .label {
+            font-weight: 470;
+            font-size: 0.98rem;
+            color: #2e2e2e;
+            margin-bottom: 0.35rem;
+        }
+
+        .feature-list .label strong {
+            font-weight: 530;
+            color: #1b3b4f;
+        }
+
+        .feature-list .desc {
+            font-size: 0.95rem;
+            color: #5b5b5b;
+            line-height: 1.6;
+        }
+
+        /* ---- 场景延伸 ---- */
+        .scene-block {
+            background: #f4f2ef;
+            padding: 2rem 1.8rem;
+            border-radius: 24px;
+            margin: 3rem 0 2.8rem;
+        }
+
+        .scene-block h3 {
+            font-size: 1.2rem;
+            font-weight: 480;
+            margin-bottom: 0.9rem;
+            color: #1d1d1d;
+        }
+
+        .scene-block p {
+            font-size: 0.98rem;
+            color: #3f3f3f;
+            margin-bottom: 0.9rem;
+        }
+
+        .scene-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .scene-block a {
+            color: #1b3b4f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #beb5ab;
+        }
+
+        .scene-block a:hover {
+            text-decoration-color: #1b3b4f;
+        }
+
+        /* ---- 温和结尾 / faq 摘要 ---- */
+        .ending-block {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2dfda;
+        }
+
+        .ending-block .faq-mini {
+            font-size: 0.95rem;
+            color: #484848;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            row-gap: 1.2rem;
+        }
+
+        .ending-block .faq-item {
+            flex: 1 1 180px;
+        }
+
+        .ending-block .faq-item .q {
+            font-weight: 470;
+            margin-bottom: 0.25rem;
+            color: #1f1f1f;
+        }
+
+        .ending-block .faq-item .a {
+            color: #5f5f5f;
+            line-height: 1.6;
+        }
+
+        .ending-note {
+            margin-top: 2rem;
+            font-size: 0.92rem;
+            color: #7d7d7d;
+            text-align: center;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 520px) {
+            .page {
+                padding: 1.8rem 1.2rem 4rem;
+            }
+            .opening h1 {
+                font-size: 1.9rem;
+            }
+            .feature-list li {
+                padding: 1rem 1.2rem;
+            }
+            .scene-block {
+                padding: 1.5rem 1.2rem;
+            }
+            .ending-block .faq-mini {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 800px) {
+            .page {
+                padding-top: 3.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 开场短句 -->
+        <div class="opening">
+            <div class="short-line">日常查阅 · 对照延伸</div>
+            <h1>从一条查询到一份整理</h1>
+            <div class="subhead">关于游戏信息与浏览习惯的一页记录</div>
+        </div>
+
+        <!-- 承接段落 —— 从日常查询、对照延伸阅读切入 -->
+        <div class="intro-block">
+            <p>
+                平常想了解一款游戏的背景、最新动态或相关社区讨论时，往往需要在不同页面间来回对照。
+                时间久了，会发现一个顺手且内容稳定的站点能省去很多重复查找的精力。
+                <a href="https://wap-site-igame.com">爱游戏</a> 就是这样的一个起点——它专注于游戏资讯的聚合与整理，
+                没有过多的跳转干扰，页面结构也相对直接。
+            </p>
+            <p>
+                阅读时如果需要对照游戏版本、活动时间或玩家评价，这个站点可以作为延伸查阅的参考。
+                由于它不刻意堆砌信息，反而适合在浏览过程中保持一种不被打断的节奏。
+            </p>
+        </div>
+
+        <!-- 特点列表 -->
+        <div class="feature-section">
+            <h2>这类页面通常具备的特点</h2>
+            <ul class="feature-list">
+                <li>
+                    <div class="label"><strong>内容聚合</strong> · 一条主线</div>
+                    <div class="desc">围绕游戏相关话题，整理新闻、攻略与活动公告，减少在多个平台之间切换的零碎感。</div>
+                </li>
+                <li>
+                    <div class="label"><strong>结构清晰</strong> · 方便对照</div>
+                    <div class="desc">列表与分类明确，便于快速定位某个游戏的版本更新或专题内容，适合延伸阅读时做参照。</div>
+                </li>
+                <li>
+                    <div class="label"><strong>移动浏览友好</strong> · 轻量排版</div>
+                    <div class="desc">页面针对手机屏幕做了简化，字体和间距适中，即使在通勤或碎片时间里也能平顺翻阅。</div>
+                </li>
+                <li>
+                    <div class="label"><strong>更新稳定</strong> · 可作日常锚点</div>
+                    <div class="desc">保持一定频率的内容更新，适合作为日常查询的固定站点之一，不必反复适应新界面。</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 场景延伸 -->
+        <div class="scene-block">
+            <h3>适合这样使用</h3>
+            <p>
+                如果你想回顾某款游戏在最近一个季度的活动脉络，或者需要对比不同服务器的公告时间，
+                可以打开 <a href="https://wap-site-igame.com">爱游戏</a> 作为参照页面。
+                它的信息层级不深，两三次点击就能到达具体内容，很适合在查阅攻略或写整理笔记时作为对照窗口。
+            </p>
+            <p>
+                日常浏览中，也可以把它当作一个轻量的阅读入口——没有强推的通知，也没有复杂的个人中心，
+                更像一个安静的资料架，等你需要时随手拉开。
+            </p>
+        </div>
+
+        <!-- 温和结尾 · 类似FAQ摘要 -->
+        <div class="ending-block">
+            <div class="faq-mini">
+                <div class="faq-item">
+                    <div class="q">内容主要涉及哪些方面？</div>
+                    <div class="a">游戏资讯、版本更新、活动公告以及部分玩家讨论向的整理，范围以热门及常青游戏为主。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">页面会频繁变动吗？</div>
+                    <div class="a">界面风格偏简洁固定，不会有大的布局改动，内容按常规节奏更新。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="q">适合作为长期书签吗？</div>
+                    <div class="a">如果平时有查阅游戏资讯的习惯，可以作为一个稳定的参考站点加入书签栏。</div>
+                </div>
+            </div>
+            <div class="ending-note">
+                — 一份安静的日常对照索引
+            </div>
+        </div>
+    </div>
+</body>
+</html>
